@@ -4,7 +4,7 @@ set nocompatible
 " ステータスバー2行
 set laststatus=2
 "カーソルラインを表示する
-set cursorline
+"set cursorline
 
 "set number
 set expandtab     " タブ入力を複数の空白入力に置き換える
@@ -13,7 +13,7 @@ set shiftwidth=2  " 自動インデントでずれる幅
 set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set autoindent    " 改行時に前の行のインデントを継続する
 set smartindent   " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
-set paste         " コピペ時のずれを解消
+"set paste         " コピペ時のずれを解消
 
 " statusline
 " set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
@@ -35,7 +35,6 @@ set incsearch
 set ignorecase
 " 検索文字ハイライト
 set hlsearch
-
 
 
 """"""""""" insert mode
@@ -107,17 +106,6 @@ NeoBundle 'tomasr/molokai'
 " statusline
 NeoBundle 'itchyny/lightline.vim'
 
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
-" カラースキーム
-colorscheme molokai
 
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
@@ -133,13 +121,14 @@ let g:unite_source_history_yank_enable = 1
 " バッファ一覧
 noremap <C-P> :Unite buffer<CR>
 " ファイル一覧
-noremap <C-N> :Unite -buffer-name=file file<CR>
+"noremap <C-N> :Unite -buffer-name=files file<CR>
+noremap <C-N> :UniteWithBufferDir -buffer-name=files file<CR>
 " 最近使ったファイルの一覧
 noremap <C-Z> :Unite file_mru<CR>
 " sourcesを「今開いているファイルのディレクトリ」とする
 noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
 " history/yank
-nnoremap <silent> <C-h> :Unite history/yank<CR>
+nnoremap <silent> <C-y> :Unite history/yank<CR>
 " inoremap <silent> <C-s> <Esc>:Unite history/yank<CR>
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
@@ -265,3 +254,19 @@ function! LightLineGitGutter()
   endfor
   return join(ret, ' ')
 endfunction
+
+"""""""""""""""""
+" Neobundle end
+"""""""""""""""""
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"""""""""""""""""
+
+" カラースキーム
+colorscheme molokai
