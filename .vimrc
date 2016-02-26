@@ -53,6 +53,9 @@ inoremap <C-l> <Right>
 " カーソル後の文字削除
 inoremap <silent> <C-d> <Del>
 
+" <Leader>を,に変更
+:let mapleader = ","
+
 """""""""""""" neobundle
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -85,7 +88,12 @@ NeoBundle 'airblade/vim-gitgutter'
 "NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'tpope/vim-rails'
+
 NeoBundle 'basyura/unite-rails'
+map <silent> <leader>c :Unite rails/controller<CR>
+map <silent> <leader>v :Unite rails/view<CR>
+map <silent> <leader>m :Unite rails/model<CR>
+
 " インデントに色を付けて見やすくする
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
@@ -106,6 +114,12 @@ NeoBundle 'tomasr/molokai'
 " statusline
 NeoBundle 'itchyny/lightline.vim'
 
+" taglist
+NeoBundle 'vim-scripts/taglist.vim'
+let Tlist_Show_One_File = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Exit_OnlyWindow = 1
+map <silent> <leader>l :TlistToggle<CR>
 
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
