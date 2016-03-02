@@ -111,6 +111,9 @@ map <silent> <leader>m :Unite rails/model<CR>
 "NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
 
+" slim colors
+NeoBundle 'slim-template/vim-slim'
+
 " statusline
 NeoBundle 'itchyny/lightline.vim'
 
