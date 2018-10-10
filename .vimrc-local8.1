@@ -81,6 +81,9 @@ if dein#load_state('~/.cache/dein')
  
   " taglist
  call dein#add('vim-scripts/taglist.vim')
+ 
+  " yajs
+ call dein#add('othree/yajs.vim')
 
  call dein#end()
  call dein#save_state()
@@ -124,7 +127,16 @@ nnoremap <silent> <C-y> :Unite history/yank<CR>
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
-" vim-gitgutter
+"""""""" vim-gitgutter
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '->'
 let g:gitgutter_sign_removed = '-'
+
+"""""""" taglist
+let Tlist_Show_One_File = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Exit_OnlyWindow = 1
+map <silent> <leader>l :TlistToggle<CR>
+
+"""""""" yajs
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
