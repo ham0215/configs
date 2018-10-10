@@ -34,6 +34,12 @@ inoremap <C-k> <Up>
 inoremap <C-n> <Left>
 inoremap <C-l> <Right>
 
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
+
+" <Leader>を,に変更
+:let mapleader = ","
+
 " dein
 if &compatible
  set nocompatible
@@ -72,6 +78,9 @@ if dein#load_state('~/.cache/dein')
 
  " color
  call dein#add('tomasr/molokai')
+ 
+  " taglist
+ call dein#add('vim-scripts/taglist.vim')
 
  call dein#end()
  call dein#save_state()
@@ -119,19 +128,3 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '->'
 let g:gitgutter_sign_removed = '-'
-
-" airline
-let g:airline_theme = 'wombat'
-set laststatus=2
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
-let g:airline_section_c = '%t'
-let g:airline_section_x = '%{&filetype}'
-let g:airline_section_z = '%3l:%2v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
-let g:airline#extensions#ale#error_symbol = ' '
-let g:airline#extensions#ale#warning_symbol = ' '
-let g:airline#extensions#default#section_truncate_width = {}
-let g:airline#extensions#whitespace#enabled = 1
-
