@@ -84,6 +84,9 @@ if dein#load_state('~/.cache/dein')
  
   " yajs
  call dein#add('othree/yajs.vim')
+ 
+  " vim-slim
+ call dein#add('slim-template/vim-slim')
 
  call dein#end()
  call dein#save_state()
@@ -140,3 +143,6 @@ map <silent> <leader>l :TlistToggle<CR>
 
 """""""" yajs
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+
+"""""""" vim-slim
+autocmd BufRead,BufNewFile *.slim setfiletype slim
