@@ -158,6 +158,9 @@ autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 """""""" vim-slim
 autocmd BufRead,BufNewFile *.slim setfiletype slim
 
+"""""""" ruby
+autocmd BufRead,BufNewFile *.jbuilder setfiletype ruby
+
 """""""" airline
 " Powerline系フォントを利用する
 set laststatus=2
@@ -200,5 +203,5 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 " old vim-powerline symbols
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
