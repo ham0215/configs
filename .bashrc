@@ -2,7 +2,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
+  . /etc/bashrc
 fi
 
 export HISTCONTROL=ignoredups
@@ -17,7 +17,11 @@ export PS1="[\u:\W]\$ "
 # stop
 stty stop undef
 
+# general
 alias vi="/usr/local/bin/vim -u ~/.vimrc-local8.1"
+alias f="find . -name"
+
+# git
 alias gs="git status"
 alias gb="git branch"
 alias gd="git diff"
@@ -36,3 +40,18 @@ function gp {
     git push origin $c
   fi
 }
+
+# docker
+alias dls="docker container ls"
+alias dce="docker-compose exec"
+alias dcb="docker-compose up --build -d"
+
+# rails
+alias rt='ctags --langmap=RUBY:.rb --exclude="*.js" --exclude=".git*" -R .'
+#alias be="bundle exec"
+#alias routes="bundle exec rake routes"
+#alias rubocop="bundle exec rubocop"
+#alias rspec="bundle exec rspec"
+#alias gmigrate="bundle exec rails g migration"
+#alias migrate="bundle exec rails db:migrate"
+#alias prepare="bundle exec rake db:test:prepare"
