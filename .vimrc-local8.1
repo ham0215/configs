@@ -73,20 +73,6 @@ if dein#load_state('~/.cache/dein')
  "call dein#add('Shougo/neosnippet-snippets')
  call dein#add('deoplete-plugins/deoplete-tag')
 
- " deoplete
- let g:deoplete#enable_at_startup = 1
- "let g:monster#completion#backend = 'solargraph'
-
- " neosnippet
- "imap <C-k>     <Plug>(neosnippet_expand_or_jump)
- "smap <C-k>     <Plug>(neosnippet_expand_or_jump)
- "xmap <C-k>     <Plug>(neosnippet_expand_target)
- "smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
- " For conceal markers.
- "if has('conceal')
- "  set conceallevel=2 concealcursor=niv
- "endif
-
  " ruby-dictionary3
  setlocal dictionary+=~/.config/nvim/repos/github.com/takkii/ruby-dictionary3/autoload/source/ruby_method_deoplete
  call deoplete#custom#source(
@@ -225,3 +211,17 @@ let g:airline_symbols.readonly = '🔒'
 " old vim-powerline symbols
 let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
+
+ " deoplete
+let g:deoplete#enable_at_startup = 1
+ "let g:monster#completion#backend = 'solargraph'
+
+ " neosnippet
+ "imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+ "smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+ "xmap <C-k>     <Plug>(neosnippet_expand_target)
+ "smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+ " For conceal markers.
+ "if has('conceal')
+ "  set conceallevel=2 concealcursor=niv
+ "endif
