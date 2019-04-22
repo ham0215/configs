@@ -16,7 +16,7 @@ set encoding=UTF-8
 set showcmd
 set wildmenu
 set number
-set cursorline
+"set cursorline
 
 syntax on
 
@@ -40,9 +40,13 @@ inoremap <silent> jj <ESC>
 
 " 挿入モードでのカーソル移動
 inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-n> <Left>
-inoremap <C-l> <Right>
+"inoremap <C-k> <Up>
+"inoremap <C-n> <Left>
+"inoremap <C-l> <Right>
+
+ " Ctrl-x
+inoremap <C-k> <C-x><C-k>
+inoremap <C-]> <C-x><C-]>
 
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
@@ -62,21 +66,25 @@ if dein#load_state('~/.cache/dein')
  call dein#add('~/.cache/dein')
 
  " deoplete
- call dein#add('Shougo/deoplete.nvim')
- call dein#add('roxma/nvim-yarp')
- call dein#add('roxma/vim-hug-neovim-rpc')
- call dein#add('takkii/Bignyanco')
- call dein#add('takkii/ruby-dictionary3')
- call dein#add('Shougo/neco-syntax')
- call dein#add('ujihisa/neco-look')
- "call dein#add('Shougo/neosnippet.vim')
- "call dein#add('Shougo/neosnippet-snippets')
- call dein#add('deoplete-plugins/deoplete-tag')
+ "call dein#add('Shougo/deoplete.nvim')
+ "call dein#add('roxma/nvim-yarp')
+ "call dein#add('roxma/vim-hug-neovim-rpc')
+ "call dein#add('takkii/Bignyanco')
+ "call dein#add('takkii/ruby-dictionary3')
+ "call dein#add('Shougo/neco-syntax')
+ "call dein#add('ujihisa/neco-look')
+ "call dein#add('deoplete-plugins/deoplete-tag')
+
+ ""call dein#add('Shougo/neosnippet.vim')
+ ""call dein#add('Shougo/neosnippet-snippets')
 
  " ruby-dictionary3
- setlocal dictionary+=~/.config/nvim/repos/github.com/takkii/ruby-dictionary3/autoload/source/ruby_method_deoplete
- call deoplete#custom#source(
-       \ 'dictionary', 'ruby', ['[^. *\t]\.\w*\|\h\w*::'])
+ "setlocal dictionary+=~/.config/nvim/repos/github.com/takkii/ruby-dictionary3/autoload/source/ruby_method_deoplete
+ "call deoplete#custom#source(
+ "      \ 'dictionary', 'ruby', ['[^. *\t]\.\w*\|\h\w*::'])
+
+ " vim-ref
+ "call dein#add('thinca/vim-ref')
 
  " unite
  call dein#add('Shougo/unite.vim')
@@ -213,7 +221,7 @@ let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
 
  " deoplete
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
  "let g:monster#completion#backend = 'solargraph'
 
  " neosnippet
