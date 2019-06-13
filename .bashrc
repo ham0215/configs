@@ -9,7 +9,7 @@ export HISTCONTROL=ignoredups
 #export HISTIGNORE="fg*:bg*:history*:exit"
 export HISTSIZE=10000
 
-export PS1="[\u:\W]\$ "
+export PS1="[\W]\$ "
 
 # vim
 [[ $VIM ]] && PS1="\[\e[1;34m\](vi)\[\e[00m\] $PS1"
@@ -22,6 +22,9 @@ alias vi="/usr/local/bin/vim -u ~/.vimrc-local8.1"
 alias f="find . -name"
 
 # git
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 alias gs="git status"
 alias gb="git branch"
 alias gd="git diff"
@@ -46,12 +49,5 @@ alias dls="docker container ls"
 alias dce="docker-compose exec"
 alias dcb="docker-compose up --build -d"
 
-# rails
+# ctags
 alias rt='ctags --langmap=RUBY:.rb --exclude="*.js" --exclude=".git*" -R .'
-#alias be="bundle exec"
-#alias routes="bundle exec rake routes"
-#alias rubocop="bundle exec rubocop"
-#alias rspec="bundle exec rspec"
-#alias gmigrate="bundle exec rails g migration"
-#alias migrate="bundle exec rails db:migrate"
-#alias prepare="bundle exec rake db:test:prepare"
