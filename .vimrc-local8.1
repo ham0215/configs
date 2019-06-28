@@ -105,14 +105,27 @@ if dein#load_state('~/.cache/dein')
  " color
  call dein#add('tomasr/molokai')
  
-  " taglist
+ " taglist
  call dein#add('vim-scripts/taglist.vim')
+
+ " ale
+ "call dein#add('w0rp/ale')
+
+ "let g:ale_fixers = {
+ "\   'ruby': ['rubocop'],
+ "\}
+
+ "let g:ale_ruby_rubocop_executable = 'docker-compose exec cc-api bundle exec rubocop'
+ "let g:airline#extensions#ale#enabled = 1
  
   " yajs
  call dein#add('othree/yajs.vim')
  
   " vim-slim
  call dein#add('slim-template/vim-slim')
+
+ " dash
+ call dein#add('rizzatti/dash.vim')
 
  call dein#end()
  call dein#save_state()
