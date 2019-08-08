@@ -44,6 +44,14 @@ function gp {
   fi
 }
 
+function chrome {
+  cp -p $HOME/Library/Application\ Support/Google/Chrome/Default/History /tmp/chrome_history
+  local c="$(sqlite3 /tmp/chrome_history 'select url from urls' | peco)"
+  if [ -n "$c" ]; then
+    open -a '/Applications/Google Chrome.app' "$c"
+  fi
+}
+
 # docker
 alias dls="docker container ls"
 alias dce="docker-compose exec"
@@ -51,6 +59,3 @@ alias dcb="docker-compose up --build -d"
 
 # ctags
 alias rt='ctags --langmap=RUBY:.rb --exclude="*.js" --exclude=".git*" -R .'
-
-# other
-alias chrome="open -a '/Applications/Google Chrome.app'"
