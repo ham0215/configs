@@ -51,3 +51,6 @@ alias dcb="docker-compose up --build -d"
 
 # ctags
 alias rt='ctags --langmap=RUBY:.rb --exclude="*.js" --exclude=".git*" -R .'
+
+# other
+alias chrome="open -a '/Applications/Google Chrome.app'"
