@@ -9,7 +9,7 @@ export HISTCONTROL=ignoredups
 #export HISTIGNORE="fg*:bg*:history*:exit"
 export HISTSIZE=10000
 
-export PS1="[\W]\$ "
+export PS1="[:\W]\$ "
 
 # vim
 [[ $VIM ]] && PS1="\[\e[1;34m\](vi)\[\e[00m\] $PS1"
@@ -24,6 +24,8 @@ alias f="find . -name"
 # git
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
+elif [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
+  . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
 alias gs="git status"
 alias gb="git branch"
