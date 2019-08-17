@@ -59,5 +59,9 @@ alias dls="docker container ls"
 alias dce="docker-compose exec"
 alias dcb="docker-compose up --build -d"
 
+function dockertags {
+  curl -s -S "https://registry.hub.docker.com/v1/repositories/$1/tags" | jq '.[]["name"]'
+}
+
 # ctags
 alias rt='ctags --langmap=RUBY:.rb --exclude="*.js" --exclude=".git*" -R .'
