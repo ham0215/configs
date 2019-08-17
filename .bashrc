@@ -46,7 +46,7 @@ function gp {
   fi
 }
 
-function chrome {
+function ch {
   cp -p $HOME/Library/Application\ Support/Google/Chrome/Default/History /tmp/chrome_history
   local c="$(sqlite3 /tmp/chrome_history 'select url from urls' | peco)"
   if [ -n "$c" ]; then
