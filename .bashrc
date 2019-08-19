@@ -7,9 +7,9 @@ fi
 
 export HISTCONTROL=ignoredups
 #export HISTIGNORE="fg*:bg*:history*:exit"
-export HISTSIZE=10000
+export HISTSIZE=100000
 
-export PS1="[:\W]\$ "
+export PS1="\W:\$ "
 
 # vim
 [[ $VIM ]] && PS1="\[\e[1;34m\](vi)\[\e[00m\] $PS1"
