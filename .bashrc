@@ -20,6 +20,7 @@ stty stop undef
 # general
 alias vi="/usr/local/bin/vim -u ~/.vimrc-local8.1"
 alias f="find . -name"
+alias ls="ls -G"
 
 # git
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
