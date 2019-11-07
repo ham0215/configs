@@ -1,18 +1,11 @@
-# .bashrc
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
-
 export HISTCONTROL=ignoredups
 #export HISTIGNORE="fg*:bg*:history*:exit"
 export HISTSIZE=100000
 
-export PS1="\W:\$ "
-
-# vim
-[[ $VIM ]] && PS1="\[\e[1;34m\](vi)\[\e[00m\] $PS1"
+# prompt
+autoload -Uz colors && colors
+export PROMPT="%{$fg[cyan]%}%c%{$reset_color%} %% "
+[[ $VIM ]] && PROMPT="%{$fg[green]%}(vi)%{$reset_color%} $PROMPT"
 
 # stop
 stty stop undef
@@ -22,12 +15,9 @@ alias vi="/usr/local/bin/vim -u ~/.vimrc-local8.1"
 alias f="find . -name"
 alias ls="ls -G"
 
-# git
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-elif [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
-  . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
-fi
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+autoload -U compinit
+compinit -u
 alias gs="git status"
 alias gb="git branch"
 alias gd="git diff"
@@ -92,7 +82,7 @@ peco-history() {
         history -d $((HISTCMD-1))
     fi
 }
-bind -x '"\C-r":peco-history'
+#bind -x '"\C-r":peco-history'
 
 # docker
 alias dls="docker container ls"
