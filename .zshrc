@@ -60,29 +60,14 @@ function gvi {
   vi $(git grep -n $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
-peco-history() {
-    local NUM=$(history | wc -l)
-    local FIRST=$((-1*(NUM-1)))
-
-    if [ $FIRST -eq 0 ] ; then
-        history -d $((HISTCMD-1))
-        echo "No history" >&2
-        return
-    fi
-
-    local CMD=$(fc -l $FIRST | sort -k 2 -k 1nr | uniq -f 1 | sort -nr | sed -E 's/^[0-9]+[[:blank:]]+//' | peco | head -n 1)
-
-    if [ -n "$CMD" ] ; then
-        history -s $CMD
-
-        if type osascript > /dev/null 2>&1 ; then
-            (osascript -e 'tell application "System Events" to keystroke (ASCII character 30)' &)
-        fi
-    else
-        history -d $((HISTCMD-1))
-    fi
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
 }
-#bind -x '"\C-r":peco-history'
+
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
 
 # docker
 alias dls="docker container ls"
