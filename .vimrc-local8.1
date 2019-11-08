@@ -110,7 +110,8 @@ if dein#load_state('~/.cache/dein')
  call dein#add('ryanoasis/vim-devicons')
 
  " color
- call dein#add('tomasr/molokai')
+ "call dein#add('tomasr/molokai')
+ call dein#add('raphamorim/lucario')
  
  " taglist
  call dein#add('vim-scripts/taglist.vim')
@@ -154,7 +155,8 @@ endif
 filetype plugin indent on
 syntax enable
 
-colorscheme molokai
+"colorscheme molokai
+colorscheme lucario
 
 """""""" unite
 " 入力モードで開始する
@@ -268,3 +270,9 @@ let g:airline_right_alt_sep = '⮃'
 let g:used_javascript_libs = 'jquery,react'
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_react = 1
+
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+highlight Folded ctermbg=none
+highlight EndOfBuffer ctermbg=none
