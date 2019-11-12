@@ -110,8 +110,8 @@ if dein#load_state('~/.cache/dein')
  call dein#add('ryanoasis/vim-devicons')
 
  " color
- "call dein#add('tomasr/molokai')
- call dein#add('raphamorim/lucario')
+ call dein#add('tomasr/molokai')
+ "call dein#add('raphamorim/lucario')
  
  " taglist
  call dein#add('vim-scripts/taglist.vim')
@@ -155,8 +155,9 @@ endif
 filetype plugin indent on
 syntax enable
 
-"colorscheme molokai
-colorscheme lucario
+autocmd ColorScheme * highlight Comment ctermfg=50 guifg=#008800
+colorscheme molokai
+"colorscheme lucario
 
 """""""" unite
 " 入力モードで開始する
