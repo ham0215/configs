@@ -1,6 +1,7 @@
 export HISTCONTROL=ignoredups
 #export HISTIGNORE="fg*:bg*:history*:exit"
-export HISTSIZE=100000
+export HISTSIZE=1000
+export SAVEHIST=100000
 
 # prompt
 autoload -Uz colors && colors
@@ -9,6 +10,8 @@ export PROMPT="%{$fg[cyan]%}%c%{$reset_color%} %% "
 
 # stop
 stty stop undef
+
+setopt nonomatch
 
 # general
 alias vi="/usr/local/bin/vim -u ~/.vimrc-local8.1"
