@@ -1,6 +1,6 @@
 export HISTCONTROL=ignoredups
 #export HISTIGNORE="fg*:bg*:history*:exit"
-export HISTSIZE=1000
+export HISTSIZE=100000
 export SAVEHIST=100000
 
 # prompt
