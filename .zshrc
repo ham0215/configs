@@ -3,6 +3,12 @@ export HISTCONTROL=ignoredups
 export HISTSIZE=100000
 export SAVEHIST=100000
 
+# PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
+
 # prompt
 autoload -Uz colors && colors
 export PROMPT="%{$fg[cyan]%}%c%{$reset_color%} %% "
