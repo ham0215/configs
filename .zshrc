@@ -21,7 +21,6 @@ setopt nonomatch
 
 # general
 alias vi="/usr/local/bin/vim -u ~/.vimrc-local8.1"
-alias f="find . -name"
 alias ls="ls -G"
 
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
@@ -89,3 +88,31 @@ function dockertags {
 
 # ctags
 alias rt='ctags --langmap=RUBY:.rb --exclude="*.js" --exclude=".git*" -R .'
+
+
+# one char alias
+alias a="docker-compose up --build -d"
+alias b="git checkout -b"
+alias c="cp -p"
+alias d="git diff"
+alias e="ch"
+alias f="find . -name"
+alias g="git grep"
+alias h="git checkout"
+alias i="git branch -d"
+alias j="git status"
+alias k="git pull"
+alias l="ls -ltr"
+alias m="git commit"
+alias n="git add"
+alias o="open ."
+alias p="git push"
+alias q="docker-compose logs -f"
+alias s="docker-compose restart"
+alias t="tail -f"
+alias u="git branch"
+alias v="gvi"
+alias w="docker container ls"
+alias x="docker-compose exec"
+alias y="open https://ham0215.github.io/alias.html"
+alias z="docker-compose down"
