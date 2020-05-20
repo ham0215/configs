@@ -79,8 +79,6 @@ bindkey '^R' peco-history-selection
 
 # docker
 alias dls="docker container ls"
-alias dce="docker-compose exec"
-alias dcb="docker-compose up --build -d"
 
 function dockertags {
   curl -s -S "https://registry.hub.docker.com/v1/repositories/$1/tags" | jq '.[]["name"]'
@@ -91,7 +89,7 @@ alias rt='ctags --langmap=RUBY:.rb --exclude="*.js" --exclude=".git*" -R .'
 
 
 # one char alias
-alias a="docker-compose up --build -d"
+alias a="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose up --build -d"
 alias b="git checkout -b"
 alias c="cp -p"
 alias d="git diff"
