@@ -87,6 +87,13 @@ function dockertags {
 # ctags
 alias rt='ctags --langmap=RUBY:.rb --exclude="*.js" --exclude=".git*" -R .'
 
+# kubectl
+function ckube {
+  local c="$(kubectl config get-contexts | sed -e '1d' | peco | sed -e 's/* //g' | awk '{print $2}')"
+  if [ -n "$c" ]; then
+    kubectl config use-context $c
+  fi
+}
 
 # one char alias
 alias a="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose up --build -d"
