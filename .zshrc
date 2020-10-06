@@ -89,6 +89,7 @@ function dockertags {
 
 # ctags
 alias rt='ctags --langmap=RUBY:.rb --exclude="*.js" --exclude=".git*" -R .'
+alias pt='ctags --langmap=Python:.py --exclude=".git*" -R .'
 
 # kubectl
 function ckube {

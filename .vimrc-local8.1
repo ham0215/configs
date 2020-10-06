@@ -136,14 +136,18 @@ if dein#load_state('~/.cache/dein')
  call dein#add('maxmellon/vim-jsx-pretty')
  call dein#add('ternjs/tern_for_vim')
  
- " vim-slim
- call dein#add('slim-template/vim-slim')
-
  " typescript-vim
  call dein#add('leafgarland/typescript-vim')
 
  " dash
  call dein#add('rizzatti/dash.vim')
+
+ " ruby
+ call dein#add('vim-ruby/vim-ruby')
+ call dein#add('slim-template/vim-slim')
+
+ " python
+ call dein#add('davidhalter/jedi-vim')
 
  call dein#end()
  call dein#save_state()
@@ -209,6 +213,9 @@ autocmd BufRead,BufNewFile *.slim setfiletype slim
 """""""" ruby
 autocmd BufRead,BufNewFile *.jbuilder setfiletype ruby
 
+"""""""" jedi-vim
+autocmd FileType python setlocal completeopt-=preview
+
 """""""" airline
 " Powerline系フォントを利用する
 let g:airline_powerline_fonts = 1
@@ -251,8 +258,8 @@ let g:airline_symbols.readonly = '🔒'
 "let g:airline_symbols.linenr = ''
 
 " old vim-powerline symbols
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
+" let g:airline_right_sep = '⮂'
+" let g:airline_right_alt_sep = '⮃'
 
  " deoplete
 "let g:deoplete#enable_at_startup = 1
