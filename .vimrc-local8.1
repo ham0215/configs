@@ -149,6 +149,10 @@ if dein#load_state('~/.cache/dein')
  " python
  call dein#add('davidhalter/jedi-vim')
 
+ " markdown-preview.nvim
+ call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+       \ 'build': 'sh -c "cd app && yarn install"' })
+
  call dein#end()
  call dein#save_state()
 endif
