@@ -99,6 +99,15 @@ function ckube {
   fi
 }
 
+# gcloud
+function gccurrent() {
+  cat $HOME/.config/gcloud/active_config
+}
+
+function cgcloud() {
+  gcloud config configurations activate $(gcloud config configurations list | awk '{print $1}' | grep -v NAME | peco)
+}
+
 # one char alias
 alias a="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose up --build -d"
 alias b="git checkout -b"
