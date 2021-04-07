@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# https://github.com/awslabs/git-secrets
+git secrets --pre_commit_hook -- "$@"
+
+readonly BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+
+if [ ${BRANCH_NAME} = "main" ];then
+  echo "Can't commit to the main branch!!"
+  exit 1
+fi
