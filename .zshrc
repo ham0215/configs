@@ -12,6 +12,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
+
 # prompt
 autoload -Uz colors && colors
 export PROMPT="%{$fg[cyan]%}%c%{$reset_color%} %% "
@@ -23,7 +29,7 @@ stty stop undef
 setopt nonomatch
 
 # general
-alias vi="/usr/local/bin/vim -u ~/.vimrc-local8.1"
+alias vi="/usr/bin/vim -u ~/.vimrc-local8.1"
 alias ls="ls -G"
 
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
