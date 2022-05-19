@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 export HISTCONTROL=ignoredups
 #export HISTIGNORE="fg*:bg*:history*:exit"
 export HISTSIZE=100000
@@ -12,11 +14,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
-
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+. /usr/local/opt/asdf/libexec/asdf.sh
 
 # prompt
 autoload -Uz colors && colors
@@ -115,7 +113,7 @@ function cgcloud() {
 }
 
 # one char alias
-alias a="COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose up --build -d"
+alias a="docker compose up --build -d"
 alias b="git checkout -b"
 alias c="cp -p"
 alias d="git diff"
@@ -131,12 +129,15 @@ alias m="git commit"
 alias n="git add"
 alias o="open ."
 alias p="gp"
-alias q="docker-compose logs -f"
-alias s="docker-compose restart"
+alias q="docker compose logs -f"
+alias s="docker compose restart"
 alias t="tail -f"
 alias u="git branch"
 alias v="gvi"
 alias w="docker container ls"
-alias x="docker-compose exec"
+alias x="docker compose exec"
 alias y="open https://ham0215.github.io/alias.html"
-alias z="docker-compose down"
+alias z="docker compose down"
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
