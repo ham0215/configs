@@ -1,5 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 export HISTCONTROL=ignoredups
 #export HISTIGNORE="fg*:bg*:history*:exit"
 export HISTSIZE=100000
@@ -8,13 +8,8 @@ export SAVEHIST=100000
 # PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
-. /usr/local/opt/asdf/libexec/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # prompt
 autoload -Uz colors && colors
@@ -88,7 +83,7 @@ bindkey '^R' peco-history-selection
 alias dls="docker container ls"
 
 function dockertags {
-  curl -s -S "https://registry.hub.docker.com/v1/repositories/$1/tags" | jq '.[]["name"]'
+  curl -s -S "https://registry.hub.docker.com/v2/repositories/library/$1/tags/?page_size=100000"  | jq '.results[].name'
 }
 
 # ctags
@@ -140,4 +135,4 @@ alias y="open https://ham0215.github.io/alias.html"
 alias z="docker compose down"
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
