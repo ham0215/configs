@@ -8,6 +8,8 @@ export SAVEHIST=100000
 # PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
@@ -15,6 +17,9 @@ eval "$(rbenv init -)"
 autoload -Uz colors && colors
 export PROMPT="%{$fg[cyan]%}%c%{$reset_color%} %% "
 [[ $VIM ]] && PROMPT="%{$fg[green]%}(vi)%{$reset_color%} $PROMPT"
+
+# copilot cli
+eval "$(github-copilot-cli alias -- "$0")"
 
 # stop
 stty stop undef
@@ -133,6 +138,12 @@ alias w="docker container ls"
 alias x="docker compose exec"
 alias y="open https://ham0215.github.io/alias.html"
 alias z="docker compose down"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/naoto.hamada/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/naoto.hamada/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/naoto.hamada/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/naoto.hamada/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
