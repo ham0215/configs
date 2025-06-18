@@ -1,17 +1,13 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+# [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 export HISTCONTROL=ignoredups
 #export HISTIGNORE="fg*:bg*:history*:exit"
-export HISTSIZE=100000
-export SAVEHIST=100000
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 
 # PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # prompt
 autoload -Uz colors && colors
@@ -19,7 +15,7 @@ export PROMPT="%{$fg[cyan]%}%c%{$reset_color%} %% "
 [[ $VIM ]] && PROMPT="%{$fg[green]%}(vi)%{$reset_color%} $PROMPT"
 
 # copilot cli
-eval "$(github-copilot-cli alias -- "$0")"
+# eval "$(github-copilot-cli alias -- "$0")"
 
 # stop
 stty stop undef
@@ -146,4 +142,5 @@ if [ -f '/Users/naoto.hamada/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/na
 if [ -f '/Users/naoto.hamada/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/naoto.hamada/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+eval "$(mise activate zsh)"
