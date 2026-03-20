@@ -110,8 +110,8 @@ function cgcloud() {
 
 # one char alias
 alias a="docker compose up --build -d"
-alias b="git checkout -b"
-alias c="cp -p"
+alias b="git switch -c"
+alias c='claude'
 alias d="git diff"
 alias e="ch"
 alias f="find . -name"
@@ -144,3 +144,8 @@ if [ -f '/Users/naoto.hamada/google-cloud-sdk/completion.zsh.inc' ]; then . '/Us
 # Fig post block. Keep at the bottom of this file.
 # [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 eval "$(mise activate zsh)"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/naoto.hamada/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
